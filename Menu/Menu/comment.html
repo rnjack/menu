@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+    <title>Comment</title>
+
+      <link rel="stylesheet" type="text/css" href="comment1.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  </head>
+    
+  <body>
+        <div><h2>Comment</h2></div><!-- comment -->
+        <form action='postcomment.php' method="POST">
+            <textarea type=int name=ing class=area rows=1 cols=20 placeholder=Id></textarea><br> <br> <br>
+            <textarea type=text name=ing class=area rows=1 cols=20 placeholder=Name></textarea><br> <br> <br>
+            <textarea type=int name=ing class=area rows=1 cols=20 placeholder=Phone></textarea><br> <br> <br>
+            <textarea type=text name=ing class=area rows=4 cols=50 placeholder=Comments></textarea><br>
+            <br>
+            <input type='submit' name="Submit" id="submit"/>
+        
+        </form>   <br>  
+             
+        
+        <table>
+            <tr>
+                <th>Id</th>
+                 <th>Name</th> 
+                 <th>Phone</th>
+                  <th>Comments</th>
+            </tr>
+            <!<!-- use jquery to load data from data.php -->
+            <tbody id="output">
+            </tbody>
+           
+            </table>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+            <script>
+            $(document).ready(function (){
+                $.ajax({
+                    type: "GET",
+                    url: "getcomment.php",
+                    dataType: "html",
+                    success: function(data){
+                    $('#output').html(data);
+                }
+                });
+            });
+               </script>
+             
+
+        </body>
+
+</html>
+
+
